@@ -13,4 +13,11 @@ const verifyToken = (jwt: string) => {
   return isOk;
 };
 
-export { generateToken, verifyToken };
+const generateToken2 = (email: string, role: string) => {
+  const jwt = sign({email,role}, JWT_SECRET, {
+    expiresIn: "2h",
+  });
+  return jwt;
+};
+
+export { generateToken, verifyToken, generateToken2 };
